@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Branch Compare: webmethods-sample-project-layout</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 2rem;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        h1, h2 { color: #2c3e50; }
+        .card {
+            background: white; padding: 1.5rem; border-radius: 8px;
+            border: 1px solid #ddd; margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .metadata p { margin: 0.5rem 0; }
+        .summary { display: flex; gap: 2rem; margin-bottom: 2rem; }
+        .stat-card {
+            background: #fff;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            min-width: 150px;
+            text-align: center;
+            flex: 1;
+        }
+        .stat-val { font-size: 2rem; font-weight: bold; }
+        .added { color: #28a745; }
+        .removed { color: #dc3545; }
+        .modified { color: #ffc107; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #eee; }
+        th { background-color: #f1f1f1; font-weight: bold; }
+        tr:hover { background-color: #fafafa; }
+        .tag {
+            padding: 4px 8px; border-radius: 12px; font-size: 0.85em;
+            color: white; display: inline-block;
+        }
+        .tag.bg-added { background-color: #28a745; }
+        .tag.bg-removed { background-color: #dc3545; }
+        .tag.bg-modified { background-color: #ffc107; }
+
+        /* Floating TOC */
+        .toc-container {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            z-index: 1000;
+        }
+        .toc-button {
+            background: #2c3e50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .toc-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 250px;
+            margin-top: 10px;
+            padding: 10px 0;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .toc-container:hover .toc-content { display: block; }
+        .toc-content a {
+            display: block;
+            padding: 8px 15px;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+        }
+        .toc-content a:hover { background: #f8f9fa; color: #007bff; }
+    </style>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tocContent = document.getElementById('toc-links');
+        const headers = document.querySelectorAll('h1, h2');
+        headers.forEach((header, index) => {
+            if (!header.id) {
+                header.id = 'section-' + index;
+            }
+            const link = document.createElement('a');
+            link.href = '#' + header.id;
+            link.textContent = header.textContent;
+            link.style.paddingLeft = header.tagName === 'H2' ? '25px' : '15px';
+            tocContent.appendChild(link);
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="toc-container">
+        <div class="toc-button">
+            <span>&equiv; Table of Contents</span>
+        </div>
+        <div class="toc-content" id="toc-links"></div>
+    </div>
+
+    <h1>Code Comparison Report</h1>
+
+    <div class="card metadata">
+        <p><strong>Scenario:</strong> Branch in Repo vs Local Folder</p>
+        <p><strong>Repo (Source):</strong>
+            <b>master</b>
+            on webmethods-sample-project-layout
+        </p>
+        <p><strong>Local (Target):</strong>
+            <b>Local Folders</b>
+            
+        </p>
+        <p><strong>Local Packages:</strong> ./tmp/demo_local</p>
+        <p><strong>Local Properties:</strong> ./tmp/demo_local</p>
+        <p><strong>Date:</strong> 2026-02-01 16:16:12</p>
+    </div>
+
+    <div class="summary">
+        <div class="stat-card">
+            <div class="stat-val added">3</div>
+            <div>Added Assets</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-val removed">2</div>
+            <div>Removed Assets</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-val modified">0</div>
+            <div>Modified Assets</div>
+        </div>
+    </div>
+
+    <div class="card">
+        
+    </div>
+
+    <div class="card">
+        <h2>Asset Differences</h2>
+        <table>
+            <thead>
+                <tr><th>Status</th><th>Type</th><th>Name</th></tr>
+            </thead>
+            <tbody>
+        <tr><td><span class='tag bg-added'>Added</span></td><td>package</td><td>DemoPkg</td></tr><tr><td><span class='tag bg-added'>Added</span></td><td>flow_service</td><td>DemoPkg.MainFlows:processOrder</td></tr><tr><td><span class='tag bg-added'>Added</span></td><td>properties</td><td>DV_Demo.xml</td></tr><tr><td><span class='tag bg-removed'>Removed</span></td><td>package</td><td>Fibonachi</td></tr><tr><td><span class='tag bg-removed'>Removed</span></td><td>flow_service</td><td>Fibonachi.services:getFibunachiNumber</td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+        

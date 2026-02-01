@@ -1,0 +1,641 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Branch Compare: webmethods-sample-project-layout</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 2rem;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        h1, h2 { color: #2c3e50; }
+        .card {
+            background: white; padding: 1.5rem; border-radius: 8px;
+            border: 1px solid #ddd; margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .metadata p { margin: 0.5rem 0; }
+        .summary { display: flex; gap: 2rem; margin-bottom: 2rem; }
+        .stat-card {
+            background: #fff;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            min-width: 150px;
+            text-align: center;
+            flex: 1;
+        }
+        .stat-val { font-size: 2rem; font-weight: bold; }
+        .added { color: #28a745; }
+        .removed { color: #dc3545; }
+        .modified { color: #ffc107; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #eee; }
+        th { background-color: #f1f1f1; font-weight: bold; }
+        tr:hover { background-color: #fafafa; }
+        .tag {
+            padding: 4px 8px; border-radius: 12px; font-size: 0.85em;
+            color: white; display: inline-block;
+        }
+        .tag.bg-added { background-color: #28a745; }
+        .tag.bg-removed { background-color: #dc3545; }
+        .tag.bg-modified { background-color: #ffc107; }
+
+        /* Floating TOC */
+        .toc-container {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            z-index: 1000;
+        }
+        .toc-button {
+            background: #2c3e50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .toc-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 250px;
+            margin-top: 10px;
+            padding: 10px 0;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .toc-container:hover .toc-content { display: block; }
+        .toc-content a {
+            display: block;
+            padding: 8px 15px;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+        }
+        .toc-content a:hover { background: #f8f9fa; color: #007bff; }
+    </style>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tocContent = document.getElementById('toc-links');
+        const headers = document.querySelectorAll('h1, h2');
+        headers.forEach((header, index) => {
+            if (!header.id) {
+                header.id = 'section-' + index;
+            }
+            const link = document.createElement('a');
+            link.href = '#' + header.id;
+            link.textContent = header.textContent;
+            link.style.paddingLeft = header.tagName === 'H2' ? '25px' : '15px';
+            tocContent.appendChild(link);
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="toc-container">
+        <div class="toc-button">
+            <span>&equiv; Table of Contents</span>
+        </div>
+        <div class="toc-content" id="toc-links"></div>
+    </div>
+
+    <h1>Code Comparison Report</h1>
+
+    <div class="card metadata">
+        <p><strong>Scenario:</strong> Branch vs Branch</p>
+        <p><strong>Base (Source):</strong>
+            <b>master</b>
+            on webmethods-sample-project-layout
+        </p>
+        <p><strong>Compare (Target):</strong>
+            <b>develop</b>
+            on webmethods-sample-project-layout
+        </p>
+        
+        
+        <p><strong>Date:</strong> 2026-02-01 16:15:47</p>
+    </div>
+
+    <div class="summary">
+        <div class="stat-card">
+            <div class="stat-val added">14</div>
+            <div>Added Assets</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-val removed">0</div>
+            <div>Removed Assets</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-val modified">2</div>
+            <div>Modified Assets</div>
+        </div>
+    </div>
+
+    <div class="card">
+        
+            <h2>Commit Log (51 commits)</h2>
+            <p>
+                Commits present in <b>develop</b> on webmethods-sample-project-layout but not in
+                <b>master</b> on webmethods-sample-project-layout.
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">#</th>
+                        <th>Hash</th>
+                        <th>Author</th>
+                        <th>Date</th>
+                        <th>Message</th>
+                        <th>Changes</th>
+                    </tr>
+                </thead>
+                <tbody>
+            
+                    <tr>
+                        <td>1</td>
+                        <td style="font-family: monospace;">47ac78e</td>
+                        <td>antc</td>
+                        <td>2017-06-13 14:56:27 +0300</td>
+                        <td>merge with new progress</td>
+                        <td style="font-size: 0.9em;">No file changes detected</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2</td>
+                        <td style="font-family: monospace;">d225f48</td>
+                        <td>Henning Waack</td>
+                        <td>2017-06-01 11:00:42 +0200</td>
+                        <td>added option to inject externally defined environment and thus override internal properties</td>
+                        <td style="font-size: 0.9em;"><b>M</b> build.xml</td>
+                    </tr>
+                
+                    <tr>
+                        <td>3</td>
+                        <td style="font-family: monospace;">2ec54f2</td>
+                        <td>Henning Waack (waa)</td>
+                        <td>2017-05-31 16:44:15 +0200</td>
+                        <td>refactoring to handle empty test results</td>
+                        <td style="font-size: 0.9em;"><b>M</b> Jenkinsfile.unix<br><b>M</b> Jenkinsfile.win</td>
+                    </tr>
+                
+                    <tr>
+                        <td>4</td>
+                        <td style="font-family: monospace;">9c26b4e</td>
+                        <td>Henning Waack (waa)</td>
+                        <td>2017-05-31 13:33:38 +0200</td>
+                        <td>chnaged report directory to use jenkins workspace dir as root</td>
+                        <td style="font-size: 0.9em;"><b>M</b> Jenkinsfile.win</td>
+                    </tr>
+                
+                    <tr>
+                        <td>5</td>
+                        <td style="font-family: monospace;">aa7e7bd</td>
+                        <td>Henning Waack (waa)</td>
+                        <td>2017-05-31 13:31:45 +0200</td>
+                        <td>chnaged report directory to use jenkins workspace dir as root</td>
+                        <td style="font-size: 0.9em;"><b>M</b> Jenkinsfile.win</td>
+                    </tr>
+                
+                    <tr>
+                        <td>6</td>
+                        <td style="font-family: monospace;">c634b98</td>
+                        <td>Henning Waack (waa)</td>
+                        <td>2017-05-31 10:09:41 +0200</td>
+                        <td>added static code analysis to Jenkinsfile.win</td>
+                        <td style="font-size: 0.9em;"><b>M</b> Jenkinsfile.win<br><b>M</b> build.xml</td>
+                    </tr>
+                
+                    <tr>
+                        <td>7</td>
+                        <td style="font-family: monospace;">d5ea9cd</td>
+                        <td>Henning Waack (waa)</td>
+                        <td>2017-05-31 09:48:48 +0200</td>
+                        <td>enhancements for tests</td>
+                        <td style="font-size: 0.9em;"><b>M</b> .classpath<br><b>M</b> Jenkinsfile.unix<br><b>M</b> Jenkinsfile.win<br><b>M</b> build.xml<br><b>M</b> project.properties</td>
+                    </tr>
+                
+                    <tr>
+                        <td>8</td>
+                        <td style="font-family: monospace;">11aa528</td>
+                        <td>Henning Waack (waa)</td>
+                        <td>2017-05-25 17:18:21 +0200</td>
+                        <td>changed default project.properties setting for trigger quiesce mode to false</td>
+                        <td style="font-size: 0.9em;"><b>M</b> Jenkinsfile.win<br><b>M</b> project.properties</td>
+                    </tr>
+                
+                    <tr>
+                        <td>9</td>
+                        <td style="font-family: monospace;">10991e3</td>
+                        <td>Henning Waack (waa)</td>
+                        <td>2017-05-25 15:58:06 +0200</td>
+                        <td>adjust Jenkinsfile to explicitly set ANT_HOME in order to avoid classloading issues</td>
+                        <td style="font-size: 0.9em;"><b>M</b> Jenkinsfile.win</td>
+                    </tr>
+                
+                    <tr>
+                        <td>10</td>
+                        <td style="font-family: monospace;">394b8b5</td>
+                        <td>Henning Waack (waa)</td>
+                        <td>2017-05-25 15:43:31 +0200</td>
+                        <td>adjust Jenkinsfile to explicitly set ANT_HOME in order to avoid classloading issues</td>
+                        <td style="font-size: 0.9em;"><b>M</b> ENV.groovy<br><b>M</b> Jenkinsfile.artifacctoryUpload.unix<br><b>M</b> Jenkinsfile.artifactoryDownload.unix<br><b>M</b> Jenkinsfile.unix<br><b>M</b> Jenkinsfile.win</td>
+                    </tr>
+                
+                    <tr>
+                        <td>11</td>
+                        <td style="font-family: monospace;">abb29a8</td>
+                        <td>Henning Waack (waa)</td>
+                        <td>2017-05-25 13:35:22 +0200</td>
+                        <td>fix Jenkinsfile.win, replace sh by bat</td>
+                        <td style="font-size: 0.9em;"><b>M</b> Jenkinsfile.win</td>
+                    </tr>
+                
+                    <tr>
+                        <td>12</td>
+                        <td style="font-family: monospace;">9c17096</td>
+                        <td>Henning Waack (waa)</td>
+                        <td>2017-05-24 18:13:04 +0200</td>
+                        <td>updated documentation</td>
+                        <td style="font-size: 0.9em;"><b>M</b> README.md<br><b>M</b> project.properties</td>
+                    </tr>
+                
+                    <tr>
+                        <td>13</td>
+                        <td style="font-family: monospace;">446a0ed</td>
+                        <td>Henning Waack (waa)</td>
+                        <td>2017-05-24 17:36:43 +0200</td>
+                        <td>updated SimpleTestPackage test asset to contain jms and messaging trigger for quiesce tests</td>
+                        <td style="font-size: 0.9em;"><b>M</b> .gitignore<br><b>M</b> assets/IS/Packages/SimpleTestPackage/config/listeners.cnf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/manifest.v3<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/adapter/connection/jdbcConnection/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/adapter/connection/node.idf<br><b>R070</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jms/node.idf	assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/adapter/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/adapter/selectTest/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/checkErrorDirectory/java.frag<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/checkErrorDirectory/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/writeInvalidRecordsToFile/java.frag<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/writeInvalidRecordsToFile/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/math/calculateFibonacci/java.frag<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/math/calculateFibonacci/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/math/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/jms/node.idf<br><b>R095</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jms/receiveInvalidAddress/flow.xml	assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/jms/receiveInvalidAddress/flow.xml<br><b>R084</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jms/receiveInvalidAddress/node.ndf	assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/jms/receiveInvalidAddress/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/jms/sendInvalidAdress/flow.xml<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/jms/sendInvalidAdress/node.ndf<br><b>R067</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jms/simpleTestJmsTriggerQueue/node.ndf	assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/jms/simpleTestJmsTriggerQueue/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/jms/simpleTestJmsTriggerQueue/node.ndf.triggerBak<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/nativeMessaging/addressTrigger/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/nativeMessaging/addressTrigger/node.ndf.triggerBak<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/nativeMessaging/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/nativeMessaging/publishableAddress/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/nativeMessaging/receiveAddress/flow.xml<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/nativeMessaging/receiveAddress/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/nativeMessaging/sendAddress/flow.xml<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/nativeMessaging/sendAddress/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/messaging/node.idf<br><b>M</b> project.properties<br><b>M</b> resources/vs/DEV/is/isconfiguration.vs.xml<br><b>M</b> resources/vs/TEST/is/isconfiguration.vs.xml</td>
+                    </tr>
+                
+                    <tr>
+                        <td>14</td>
+                        <td style="font-family: monospace;">f03365b</td>
+                        <td>Henning Waack (waa)</td>
+                        <td>2017-05-24 11:44:06 +0200</td>
+                        <td>added config parameter for default project name 'config.project.projectName'</td>
+                        <td style="font-size: 0.9em;"><b>M</b> project.properties</td>
+                    </tr>
+                
+                    <tr>
+                        <td>15</td>
+                        <td style="font-family: monospace;">0a68774</td>
+                        <td>Henning Waack</td>
+                        <td>2017-05-18 14:05:51 +0200</td>
+                        <td>updated documentation</td>
+                        <td style="font-size: 0.9em;"><b>M</b> README.md</td>
+                    </tr>
+                
+                    <tr>
+                        <td>16</td>
+                        <td style="font-family: monospace;">8c1af23</td>
+                        <td>Henning Waack</td>
+                        <td>2017-05-18 14:05:09 +0200</td>
+                        <td>updated documentation</td>
+                        <td style="font-size: 0.9em;"><b>M</b> README.md<br><b>M</b> project.properties</td>
+                    </tr>
+                
+                    <tr>
+                        <td>17</td>
+                        <td style="font-family: monospace;">406a2d4</td>
+                        <td>Henning Waack (waa)</td>
+                        <td>2017-05-17 16:18:24 +0200</td>
+                        <td>moved config property config.deployer.doVarSub to webmethods-sample-project-layout since this is a project specific parameter</td>
+                        <td style="font-size: 0.9em;"><b>M</b> project.properties</td>
+                    </tr>
+                
+                    <tr>
+                        <td>18</td>
+                        <td style="font-family: monospace;">55022bf</td>
+                        <td>Henning Waack</td>
+                        <td>2017-05-17 14:58:55 +0200</td>
+                        <td>cleanupproperties naming: prefixed asset locations with 'config.assets.'</td>
+                        <td style="font-size: 0.9em;"><b>M</b> .gitignore<br><b>A</b> assets/IS/Tests/FibonachiTest/resources/test/xml/data/fibExpectedOutput.xml<br><b>A</b> assets/IS/Tests/FibonachiTest/resources/test/xml/data/fibWrongInput.xml<br><b>A</b> assets/IS/Tests/FibonachiTest/resources/test/xml/data/finInput.xml<br><b>A</b> assets/IS/Tests/FibonachiTest/resources/test/xml/data/mockSubstractIntWrong.xml<br><b>A</b> assets/IS/Tests/FibonachiTest/resources/test/xml/setup/FibonachiTest.xml<br><b>M</b> build.xml<br><b>M</b> project.properties</td>
+                    </tr>
+                
+                    <tr>
+                        <td>19</td>
+                        <td style="font-family: monospace;">c88fbc3</td>
+                        <td>Henning Waack</td>
+                        <td>2017-05-04 22:16:49 +0200</td>
+                        <td>clean up Jenkinsfiles</td>
+                        <td style="font-size: 0.9em;"><b>M</b> Jenkinsfile.artifacctoryUpload.unix<br><b>M</b> Jenkinsfile.artifactoryDownload.unix<br><b>M</b> Jenkinsfile.unix<br><b>M</b> Jenkinsfile.win</td>
+                    </tr>
+                
+                    <tr>
+                        <td>20</td>
+                        <td style="font-family: monospace;">5b57c25</td>
+                        <td>Henning Waack</td>
+                        <td>2017-05-04 22:12:52 +0200</td>
+                        <td>clean up Jenkinsfiles for Artifactory integration</td>
+                        <td style="font-size: 0.9em;"><b>M</b> .gitignore<br><b>M</b> Jenkinsfile.artifacctoryUpload.unix<br><b>M</b> Jenkinsfile.artifactoryDownload.unix<br><b>D</b> assets/IS/Tests/FibonachiTest/resources/reports/TEST-FibonachiTest.xml<br><b>D</b> assets/IS/Tests/FibonachiTest/resources/test/xml/data/fibExpectedOutput.xml<br><b>D</b> assets/IS/Tests/FibonachiTest/resources/test/xml/data/fibWrongInput.xml<br><b>D</b> assets/IS/Tests/FibonachiTest/resources/test/xml/data/finInput.xml<br><b>D</b> assets/IS/Tests/FibonachiTest/resources/test/xml/data/mockSubstractIntWrong.xml<br><b>D</b> assets/IS/Tests/FibonachiTest/resources/test/xml/setup/FibonachiTest.xml<br><b>M</b> build.xml<br><b>M</b> resources/vs/DEV/is/Fibonachi.vs.xml<br><b>M</b> resources/vs/DEV/is/SimpleTestPackage.vs.xml<br><b>M</b> resources/vs/DEV/is/isconfiguration.vs.xml<br><b>M</b> resources/vs/QA/is/isconfiguration.vs.xml</td>
+                    </tr>
+                
+                    <tr>
+                        <td>21</td>
+                        <td style="font-family: monospace;">744c7ff</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-26 14:14:09 +0200</td>
+                        <td>added property to control the deployer project name prefix</td>
+                        <td style="font-size: 0.9em;"><b>M</b> README.md</td>
+                    </tr>
+                
+                    <tr>
+                        <td>22</td>
+                        <td style="font-family: monospace;">7c57f76</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-26 13:58:27 +0200</td>
+                        <td>added property to control the deployer project name prefix</td>
+                        <td style="font-size: 0.9em;"><b>M</b> project.properties<br><b>M</b> resources/vs/QA/is/isconfiguration.vs.xml</td>
+                    </tr>
+                
+                    <tr>
+                        <td>23</td>
+                        <td style="font-family: monospace;">8d56583</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-25 20:11:29 +0200</td>
+                        <td>first version using splitDelpoymentSets</td>
+                        <td style="font-size: 0.9em;"><b>M</b> ENV.groovy<br><b>M</b> assets/IS/Tests/FibonachiTest/resources/reports/TEST-FibonachiTest.xml<br><b>M</b> resources/vs/QA/is/Fibonachi.vs.xml<br><b>A</b> resources/vs/QA/is/Fibonachi.vs.xml.bak<br><b>M</b> resources/vs/QA/is/SimpleTestPackage.vs.xml<br><b>A</b> resources/vs/QA/is/SimpleTestPackage.vs.xml.bak<br><b>M</b> resources/vs/QA/is/isconfiguration.vs.xml<br><b>A</b> resources/vs/QA/is/isconfiguration.vs.xml.bak</td>
+                    </tr>
+                
+                    <tr>
+                        <td>24</td>
+                        <td style="font-family: monospace;">51b44ed</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-20 14:07:54 +0200</td>
+                        <td>extended documentation</td>
+                        <td style="font-size: 0.9em;"><b>M</b> README.md</td>
+                    </tr>
+                
+                    <tr>
+                        <td>25</td>
+                        <td style="font-family: monospace;">afb2c31</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-20 13:30:25 +0200</td>
+                        <td>added extensive documentation</td>
+                        <td style="font-size: 0.9em;"><b>M</b> Jenkinsfile.artifacctoryUpload.unix<br><b>M</b> Jenkinsfile.artifactoryDownload.unix<br><b>M</b> Jenkinsfile.unix<br><b>M</b> Jenkinsfile.win<br><b>M</b> README.md<br><b>M</b> project.properties<br><b>M</b> resources/vs/DEV/is/Fibonachi.vs.xml</td>
+                    </tr>
+                
+                    <tr>
+                        <td>26</td>
+                        <td style="font-family: monospace;">b4cb403</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-19 19:57:51 +0200</td>
+                        <td>unified and simplified configuration. Added parameter to Jenkinsfile to reduce duplicate configuration entries</td>
+                        <td style="font-size: 0.9em;"><b>A</b> Jenkinsfile.artifacctoryUpload.unix<br><b>M</b> Jenkinsfile.artifactoryDownload.unix<br><b>M</b> Jenkinsfile.unix<br><b>M</b> Jenkinsfile.win<br><b>M</b> README.md<br><b>M</b> project.properties</td>
+                    </tr>
+                
+                    <tr>
+                        <td>27</td>
+                        <td style="font-family: monospace;">8f4fb32</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-19 17:21:44 +0200</td>
+                        <td>added Jenkinsfile which demonstrates how to donwload a fbr artifact from Artifactory</td>
+                        <td style="font-size: 0.9em;"><b>A</b> Jenkinsfile.artifactoryDownload.unix<br><b>M</b> Jenkinsfile.unix<br><b>M</b> assets/IS/Tests/FibonachiTest/resources/reports/TEST-FibonachiTest.xml</td>
+                    </tr>
+                
+                    <tr>
+                        <td>28</td>
+                        <td style="font-family: monospace;">db524ff</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-19 16:59:42 +0200</td>
+                        <td>removed varsub templates from henning_sagdevops-ci-assets and moved to webmethods-sample-project-layout, so that these are project specific</td>
+                        <td style="font-size: 0.9em;"><b>M</b> Jenkinsfile.unix<br><b>M</b> assets/IS/Tests/FibonachiTest/resources/reports/TEST-FibonachiTest.xml<br><b>M</b> build.xml<br><b>M</b> project.properties<br><b>A</b> resources/vs/DEV/is/Fibonachi.vs.xml<br><b>A</b> resources/vs/DEV/is/SimpleTestPackage.vs.xml<br><b>A</b> resources/vs/DEV/is/isconfiguration.vs.xml<br><b>A</b> resources/vs/QA/is/Fibonachi.vs.xml<br><b>A</b> resources/vs/QA/is/SimpleTestPackage.vs.xml<br><b>A</b> resources/vs/QA/is/isconfiguration.vs.xml<br><b>A</b> resources/vs/TEST/is/Fibonachi.vs.xml<br><b>A</b> resources/vs/TEST/is/SimpleTestPackage.vs.xml<br><b>A</b> resources/vs/TEST/is/isconfiguration.vs.xml</td>
+                    </tr>
+                
+                    <tr>
+                        <td>29</td>
+                        <td style="font-family: monospace;">eb22742</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-19 16:44:01 +0200</td>
+                        <td>changed deployment to QA env to contain one server only, see SR 5278431</td>
+                        <td style="font-size: 0.9em;"><b>M</b> ENV.groovy</td>
+                    </tr>
+                
+                    <tr>
+                        <td>30</td>
+                        <td style="font-family: monospace;">7edb01d</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-19 11:51:10 +0200</td>
+                        <td>removed class files ffrom IS package code/classes folder</td>
+                        <td style="font-size: 0.9em;"><b>M</b> .gitignore</td>
+                    </tr>
+                
+                    <tr>
+                        <td>31</td>
+                        <td style="font-family: monospace;">41137c6</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-19 11:50:12 +0200</td>
+                        <td>removed class files ffrom IS package code/classes folder</td>
+                        <td style="font-size: 0.9em;"><b>D</b> assets/IS/Packages/SimpleTestPackage/code/classes/simpleTestPackage/implementation/filepolling.class<br><b>D</b> assets/IS/Packages/SimpleTestPackage/code/classes/simpleTestPackage/implementation/math.class</td>
+                    </tr>
+                
+                    <tr>
+                        <td>32</td>
+                        <td style="font-family: monospace;">7e881c8</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-19 11:13:42 +0200</td>
+                        <td>enabling varsub for is configuration assets</td>
+                        <td style="font-size: 0.9em;"><b>M</b> .gitignore<br><b>M</b> project.properties</td>
+                    </tr>
+                
+                    <tr>
+                        <td>33</td>
+                        <td style="font-family: monospace;">eb225d9</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-19 11:07:32 +0200</td>
+                        <td>enabled varsub by adding default config folder to Packages asset dir</td>
+                        <td style="font-size: 0.9em;"><b>A</b> assets/IS/Packages/config/readme.md<br><b>D</b> assets/IS/config/configPassman.cnf<br><b>D</b> assets/IS/config/empw.dat<br><b>D</b> assets/IS/config/passman.cnf<br><b>D</b> assets/IS/config/txnPassStore.dat<br><b>D</b> assets/IS/configPassman.cnf</td>
+                    </tr>
+                
+                    <tr>
+                        <td>34</td>
+                        <td style="font-family: monospace;">8333810</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-18 19:54:23 +0200</td>
+                        <td>added http port to test package for varsub demonstration</td>
+                        <td style="font-size: 0.9em;"><b>M</b> build.xml<br><b>M</b> project.properties</td>
+                    </tr>
+                
+                    <tr>
+                        <td>35</td>
+                        <td style="font-family: monospace;">5787add</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-18 19:16:54 +0200</td>
+                        <td>added http port to test package for varsub demonstration</td>
+                        <td style="font-size: 0.9em;"><b>M</b> project.properties</td>
+                    </tr>
+                
+                    <tr>
+                        <td>36</td>
+                        <td style="font-family: monospace;">72322ad</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-18 18:45:05 +0200</td>
+                        <td>added dummy config assets for varsub</td>
+                        <td style="font-size: 0.9em;"><b>M</b> project.properties</td>
+                    </tr>
+                
+                    <tr>
+                        <td>37</td>
+                        <td style="font-family: monospace;">4cfc1e6</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-18 18:43:37 +0200</td>
+                        <td>added dummy config assets for varsub</td>
+                        <td style="font-size: 0.9em;"><b>A</b> assets/IS/config/configPassman.cnf<br><b>A</b> assets/IS/config/empw.dat<br><b>A</b> assets/IS/config/passman.cnf<br><b>A</b> assets/IS/config/txnPassStore.dat<br><b>A</b> assets/IS/configPassman.cnf</td>
+                    </tr>
+                
+                    <tr>
+                        <td>38</td>
+                        <td style="font-family: monospace;">fbb62a5</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-18 18:31:03 +0200</td>
+                        <td>added http port to test package for varsub demonstration</td>
+                        <td style="font-size: 0.9em;"><b>M</b> assets/IS/Packages/SimpleTestPackage/code/classes/simpleTestPackage/implementation/filepolling.class<br><b>M</b> assets/IS/Packages/SimpleTestPackage/code/classes/simpleTestPackage/implementation/math.class<br><b>M</b> assets/IS/Packages/SimpleTestPackage/code/source/simpleTestPackage/implementation/filepolling.java<br><b>M</b> assets/IS/Packages/SimpleTestPackage/code/source/simpleTestPackage/implementation/math.java<br><b>M</b> assets/IS/Packages/SimpleTestPackage/config/auto-config.xml<br><b>M</b> assets/IS/Packages/SimpleTestPackage/config/listeners.cnf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/config/properties.cnf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/config/wxconfig.cnf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/manifest.v3<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/documents/address/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/documents/flatfile/invalidRecord/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/documents/flatfile/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/documents/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/checkErrorDirectory/java.frag<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/checkErrorDirectory/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/ffInvalidRecord/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/sendAddressToBackend/flow.xml<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/sendAddressToBackend/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/validateAddress/flow.xml<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/validateAddress/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/writeErrorFile/flow.xml<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/writeErrorFile/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/writeInvalidRecordsToFile/java.frag<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/writeInvalidRecordsToFile/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/math/calculateFibonacci/java.frag<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/math/calculateFibonacci/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/math/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/config/autosetup/flow.xml<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/config/autosetup/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/config/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/filepolling/ffDictionary/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/filepolling/ffSchema/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/filepolling/ffSchemaDT/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/filepolling/importFile/flow.xml<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/filepolling/importFile/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/filepolling/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jdbc/invokeJdbcTest/flow.xml<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jdbc/invokeJdbcTest/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jdbc/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jms/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jms/receiveInvalidAddress/flow.xml<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jms/receiveInvalidAddress/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jms/simpleTestJmsTriggerQueue/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/math/addIntegers/flow.xml<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/math/addIntegers/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/math/calculateFibonacciNumber/flow.xml<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/math/calculateFibonacciNumber/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/math/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/string/getStringLength/flow.xml<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/string/getStringLength/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/string/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/webservice/jdbc/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/webservice/jdbc/provider/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/webservice/jdbc/provider/testJdbcConnection/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/webservice/math/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/webservice/math/provider/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/webservice/math/provider/simpleMathOperations/node.ndf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/webservice/node.idf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/pub/index.html<br><b>M</b> assets/IS/Packages/SimpleTestPackage/resources/autoconfig.cnf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/resources/properties.cnf<br><b>M</b> assets/IS/Packages/SimpleTestPackage/resources/wxconfig.cnf</td>
+                    </tr>
+                
+                    <tr>
+                        <td>39</td>
+                        <td style="font-family: monospace;">a50a824</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-18 18:24:24 +0200</td>
+                        <td>removed jdbc adapter for simpler tests</td>
+                        <td style="font-size: 0.9em;"><b>D</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/adapter/connection/jdbcConnection/node.ndf<br><b>D</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/adapter/connection/node.idf<br><b>D</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/adapter/node.idf<br><b>D</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/adapter/selectTest/node.ndf</td>
+                    </tr>
+                
+                    <tr>
+                        <td>40</td>
+                        <td style="font-family: monospace;">9fb0bc6</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-18 18:16:14 +0200</td>
+                        <td>removed dependency to WxConfig</td>
+                        <td style="font-size: 0.9em;"><b>M</b> assets/IS/Packages/SimpleTestPackage/manifest.v3</td>
+                    </tr>
+                
+                    <tr>
+                        <td>41</td>
+                        <td style="font-family: monospace;">4ee7229</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-18 16:58:15 +0200</td>
+                        <td>added additional test package for varsub</td>
+                        <td style="font-size: 0.9em;"><b>A</b> assets/IS/Packages/SimpleTestPackage/code/classes/simpleTestPackage/implementation/filepolling.class<br><b>A</b> assets/IS/Packages/SimpleTestPackage/code/classes/simpleTestPackage/implementation/math.class<br><b>A</b> assets/IS/Packages/SimpleTestPackage/code/source/simpleTestPackage/implementation/filepolling.java<br><b>A</b> assets/IS/Packages/SimpleTestPackage/code/source/simpleTestPackage/implementation/math.java<br><b>A</b> assets/IS/Packages/SimpleTestPackage/config/auto-config.xml<br><b>A</b> assets/IS/Packages/SimpleTestPackage/config/listeners.cnf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/config/properties.cnf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/config/wxconfig.cnf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/manifest.v3<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/adapter/connection/jdbcConnection/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/adapter/connection/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/adapter/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/adapter/selectTest/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/documents/address/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/documents/flatfile/invalidRecord/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/documents/flatfile/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/documents/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/checkErrorDirectory/java.frag<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/checkErrorDirectory/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/ffInvalidRecord/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/sendAddressToBackend/flow.xml<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/sendAddressToBackend/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/validateAddress/flow.xml<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/validateAddress/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/writeErrorFile/flow.xml<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/writeErrorFile/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/writeInvalidRecordsToFile/java.frag<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/filepolling/writeInvalidRecordsToFile/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/math/calculateFibonacci/java.frag<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/math/calculateFibonacci/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/math/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/implementation/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/config/autosetup/flow.xml<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/config/autosetup/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/config/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/filepolling/ffDictionary/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/filepolling/ffSchema/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/filepolling/ffSchemaDT/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/filepolling/importFile/flow.xml<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/filepolling/importFile/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/filepolling/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jdbc/invokeJdbcTest/flow.xml<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jdbc/invokeJdbcTest/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jdbc/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jms/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jms/receiveInvalidAddress/flow.xml<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jms/receiveInvalidAddress/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/jms/simpleTestJmsTriggerQueue/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/math/addIntegers/flow.xml<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/math/addIntegers/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/math/calculateFibonacciNumber/flow.xml<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/math/calculateFibonacciNumber/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/math/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/string/getStringLength/flow.xml<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/string/getStringLength/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/services/string/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/webservice/jdbc/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/webservice/jdbc/provider/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/webservice/jdbc/provider/testJdbcConnection/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/webservice/math/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/webservice/math/provider/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/webservice/math/provider/simpleMathOperations/node.ndf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/ns/simpleTestPackage/webservice/node.idf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/pub/index.html<br><b>A</b> assets/IS/Packages/SimpleTestPackage/resources/autoconfig.cnf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/resources/properties.cnf<br><b>A</b> assets/IS/Packages/SimpleTestPackage/resources/wxconfig.cnf</td>
+                    </tr>
+                
+                    <tr>
+                        <td>42</td>
+                        <td style="font-family: monospace;">6fdcca3</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-12 19:57:17 +0200</td>
+                        <td>added default parameters to ENV.groovy</td>
+                        <td style="font-size: 0.9em;"><b>M</b> ENV.groovy<br><b>M</b> Jenkinsfile.unix<br><b>M</b> assets/IS/Tests/FibonachiTest/resources/reports/TEST-FibonachiTest.xml</td>
+                    </tr>
+                
+                    <tr>
+                        <td>43</td>
+                        <td style="font-family: monospace;">0218672</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-12 12:51:16 +0200</td>
+                        <td>fix test issue</td>
+                        <td style="font-size: 0.9em;"><b>M</b> Jenkinsfile.unix<br><b>M</b> assets/IS/Tests/FibonachiTest/resources/reports/TEST-FibonachiTest.xml</td>
+                    </tr>
+                
+                    <tr>
+                        <td>44</td>
+                        <td style="font-family: monospace;">4737027</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-12 10:49:38 +0200</td>
+                        <td>artifactory integration</td>
+                        <td style="font-size: 0.9em;"><b>M</b> Jenkinsfile.unix<br><b>M</b> build.xml</td>
+                    </tr>
+                
+                    <tr>
+                        <td>45</td>
+                        <td style="font-family: monospace;">83923dc</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-12 10:40:00 +0200</td>
+                        <td>artifactory integration</td>
+                        <td style="font-size: 0.9em;"><b>M</b> Jenkinsfile.unix</td>
+                    </tr>
+                
+                    <tr>
+                        <td>46</td>
+                        <td style="font-family: monospace;">a5bf89a</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-12 10:37:07 +0200</td>
+                        <td>artifactory integration</td>
+                        <td style="font-size: 0.9em;"><b>M</b> Jenkinsfile.unix<br><b>M</b> build.xml</td>
+                    </tr>
+                
+                    <tr>
+                        <td>47</td>
+                        <td style="font-family: monospace;">2d83b26</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-07 10:12:41 +0200</td>
+                        <td>cleanup and readme</td>
+                        <td style="font-size: 0.9em;"><b>M</b> Jenkinsfile.unix<br><b>D</b> Jenkinsfile.unix.bak<br><b>M</b> Jenkinsfile.win<br><b>M</b> README.md<br><b>D</b> fbr/IS/Fibonachi.acdl<br><b>D</b> fbr/IS/Fibonachi.zip<br><b>D</b> fbr/IS/_assets.obj<br><b>D</b> fbr/_compositeIndex<br><b>D</b> fbr/_index</td>
+                    </tr>
+                
+                    <tr>
+                        <td>48</td>
+                        <td style="font-family: monospace;">4055cba</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-06 19:11:54 +0200</td>
+                        <td>moved ENV.groovy here from sagdevops-ci-assets, since this file is project specific</td>
+                        <td style="font-size: 0.9em;"><b>A</b> ENV.groovy<br><b>M</b> assets/IS/Tests/FibonachiTest/resources/reports/TEST-FibonachiTest.xml<br><b>M</b> build.xml<br><b>M</b> project.properties</td>
+                    </tr>
+                
+                    <tr>
+                        <td>49</td>
+                        <td style="font-family: monospace;">3eab751</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-06 17:13:06 +0200</td>
+                        <td>adjusted Jenkinsfile.unix to use new targets and structure</td>
+                        <td style="font-size: 0.9em;"><b>A</b> .classpath<br><b>M</b> .gitignore<br><b>A</b> .project<br><b>M</b> Jenkinsfile.unix<br><b>A</b> Jenkinsfile.unix.bak<br><b>M</b> Jenkinsfile.win<br><b>M</b> LICENSE<br><b>M</b> README.md<br><b>M</b> assets/BPM/.gitignore<br><b>M</b> assets/IS/Packages/Fibonachi/.classpath<br><b>M</b> assets/IS/Packages/Fibonachi/.project<br><b>M</b> assets/IS/Packages/Fibonachi/.settings/com.softwareag.ide.eclipse.pld.bundle.builder.ui.prefs<br><b>M</b> assets/IS/Packages/Fibonachi/manifest.bak<br><b>M</b> assets/IS/Packages/Fibonachi/manifest.v3<br><b>M</b> assets/IS/Packages/Fibonachi/ns/Fibonachi/node.idf<br><b>M</b> assets/IS/Packages/Fibonachi/ns/Fibonachi/services/getFibunachiNumber/flow.xml<br><b>M</b> assets/IS/Packages/Fibonachi/ns/Fibonachi/services/getFibunachiNumber/flow.xml.bak<br><b>M</b> assets/IS/Packages/Fibonachi/ns/Fibonachi/services/getFibunachiNumber/node.ndf<br><b>M</b> assets/IS/Packages/Fibonachi/ns/Fibonachi/services/node.idf<br><b>M</b> assets/IS/Packages/Fibonachi/pub/index.html<br><b>M</b> assets/IS/Tests/FibonachiTest/.classpath<br><b>M</b> assets/IS/Tests/FibonachiTest/.classpath.swp<br><b>M</b> assets/IS/Tests/FibonachiTest/.project<br><b>M</b> assets/IS/Tests/FibonachiTest/.settings/org.eclipse.jdt.core.prefs<br><b>M</b> assets/IS/Tests/FibonachiTest/bin/.gitignore<br><b>M</b> assets/IS/Tests/FibonachiTest/resources/reports/TEST-FibonachiTest.xml<br><b>M</b> assets/IS/Tests/FibonachiTest/resources/test/xml/data/fibExpectedOutput.xml<br><b>M</b> assets/IS/Tests/FibonachiTest/resources/test/xml/data/fibWrongInput.xml<br><b>M</b> assets/IS/Tests/FibonachiTest/resources/test/xml/data/finInput.xml<br><b>M</b> assets/IS/Tests/FibonachiTest/resources/test/xml/data/mockSubstractIntWrong.xml<br><b>M</b> assets/IS/Tests/FibonachiTest/resources/test/xml/setup/FibonachiTest.xml<br><b>M</b> assets/MWS/.gitignore<br><b>M</b> build.xml<br><b>A</b> fbr/IS/Fibonachi.acdl<br><b>A</b> fbr/IS/Fibonachi.zip<br><b>A</b> fbr/IS/_assets.obj<br><b>A</b> fbr/_compositeIndex<br><b>A</b> fbr/_index<br><b>M</b> project.properties</td>
+                    </tr>
+                
+                    <tr>
+                        <td>50</td>
+                        <td style="font-family: monospace;">df0feae</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-05 19:34:56 +0200</td>
+                        <td>consistent naming</td>
+                        <td style="font-size: 0.9em;"><b>A</b> .gitignore<br><b>M</b> build.xml</td>
+                    </tr>
+                
+                    <tr>
+                        <td>51</td>
+                        <td style="font-family: monospace;">7d3803f</td>
+                        <td>Henning Waack</td>
+                        <td>2017-04-05 17:48:29 +0200</td>
+                        <td>minor adjustments</td>
+                        <td style="font-size: 0.9em;"><b>A</b> assets/IS/Tests/FibonachiTest/resources/reports/TEST-FibonachiTest.xml<br><b>M</b> build.xml</td>
+                    </tr>
+                </tbody></table>
+    </div>
+
+    <div class="card">
+        <h2>Asset Differences</h2>
+        <table>
+            <thead>
+                <tr><th>Status</th><th>Type</th><th>Name</th></tr>
+            </thead>
+            <tbody>
+        <tr><td><span class='tag bg-added'>Added</span></td><td>package</td><td>SimpleTestPackage</td></tr><tr><td><span class='tag bg-added'>Added</span></td><td>flow_service</td><td>simpleTestPackage.implementation.filepolling:writeErrorFile</td></tr><tr><td><span class='tag bg-added'>Added</span></td><td>flow_service</td><td>simpleTestPackage.implementation.filepolling:validateAddress</td></tr><tr><td><span class='tag bg-added'>Added</span></td><td>flow_service</td><td>simpleTestPackage.implementation.filepolling:sendAddressToBackend</td></tr><tr><td><span class='tag bg-added'>Added</span></td><td>flow_service</td><td>simpleTestPackage.services.filepolling:importFile</td></tr><tr><td><span class='tag bg-added'>Added</span></td><td>flow_service</td><td>simpleTestPackage.services.config:autosetup</td></tr><tr><td><span class='tag bg-added'>Added</span></td><td>flow_service</td><td>simpleTestPackage.services.math:calculateFibonacciNumber</td></tr><tr><td><span class='tag bg-added'>Added</span></td><td>flow_service</td><td>simpleTestPackage.services.math:addIntegers</td></tr><tr><td><span class='tag bg-added'>Added</span></td><td>flow_service</td><td>simpleTestPackage.services.jdbc:invokeJdbcTest</td></tr><tr><td><span class='tag bg-added'>Added</span></td><td>flow_service</td><td>simpleTestPackage.services.string:getStringLength</td></tr><tr><td><span class='tag bg-added'>Added</span></td><td>flow_service</td><td>simpleTestPackage.services.messaging.nativeMessaging:sendAddress</td></tr><tr><td><span class='tag bg-added'>Added</span></td><td>flow_service</td><td>simpleTestPackage.services.messaging.nativeMessaging:receiveAddress</td></tr><tr><td><span class='tag bg-added'>Added</span></td><td>flow_service</td><td>simpleTestPackage.services.messaging.jms:sendInvalidAdress</td></tr><tr><td><span class='tag bg-added'>Added</span></td><td>flow_service</td><td>simpleTestPackage.services.messaging.jms:receiveInvalidAddress</td></tr><tr><td><span class='tag bg-modified'>Modified</span></td><td>package</td><td>Fibonachi</td></tr><tr><td><span class='tag bg-modified'>Modified</span></td><td>flow_service</td><td>Fibonachi.services:getFibunachiNumber</td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+        

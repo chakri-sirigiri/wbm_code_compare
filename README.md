@@ -21,6 +21,10 @@ Compares a specific branch in a remote repo against assets stored in your local 
 
 ## Sample Reports
 
+Explore what the tool can do with these live samples:
+- [Branch vs Branch Comparison Report](app/reports/sample_report_branch_vs_branch.html)
+- [Local Folder vs Repo Branch Report](app/reports/sample_report_branch_vs_local.html)
+
 The tool generates interactive HTML reports in the `app/reports/` directory:
 
 | Report Section | Description |
